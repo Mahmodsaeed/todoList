@@ -15,28 +15,7 @@
     },
     "host": "petstore.swagger.io",
     "basePath": "/v2",
-    "tags": [
-        {
-            "name": "pet",
-            "description": "Everything about your Pets",
-            "externalDocs": {
-                "description": "Find out more",
-                "url": "http://swagger.io"
-            }
-        },
-        {
-            "name": "store",
-            "description": "Access to Petstore orders"
-        },
-        {
-            "name": "user",
-            "description": "Operations about user",
-            "externalDocs": {
-                "description": "Find out more about our store",
-                "url": "http://swagger.io"
-            }
-        }
-    ],
+
     "schemes": [
         "https",
         "http"
@@ -56,8 +35,7 @@
                 "produces": [
                     "application/json"
                 ],
-                "parameters": [
-                    {
+                "parameters": [{
                         "name": "petId",
                         "in": "path",
                         "description": "ID of pet to update",
@@ -88,14 +66,12 @@
                         }
                     }
                 },
-                "security": [
-                    {
-                        "petstore_auth": [
-                            "write:pets",
-                            "read:pets"
-                        ]
-                    }
-                ]
+                "security": [{
+                    "petstore_auth": [
+                        "write:pets",
+                        "read:pets"
+                    ]
+                }]
             }
         },
         "/pet": {
@@ -114,30 +90,26 @@
                     "application/json",
                     "application/xml"
                 ],
-                "parameters": [
-                    {
-                        "in": "body",
-                        "name": "body",
-                        "description": "Pet object that needs to be added to the store",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/Pet"
-                        }
+                "parameters": [{
+                    "in": "body",
+                    "name": "body",
+                    "description": "Pet object that needs to be added to the store",
+                    "required": true,
+                    "schema": {
+                        "$ref": "#/definitions/Pet"
                     }
-                ],
+                }],
                 "responses": {
                     "405": {
                         "description": "Invalid input"
                     }
                 },
-                "security": [
-                    {
-                        "petstore_auth": [
-                            "write:pets",
-                            "read:pets"
-                        ]
-                    }
-                ]
+                "security": [{
+                    "petstore_auth": [
+                        "write:pets",
+                        "read:pets"
+                    ]
+                }]
             },
             "put": {
                 "tags": [
@@ -154,17 +126,15 @@
                     "application/json",
                     "application/xml"
                 ],
-                "parameters": [
-                    {
-                        "in": "body",
-                        "name": "body",
-                        "description": "Pet object that needs to be added to the store",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/Pet"
-                        }
+                "parameters": [{
+                    "in": "body",
+                    "name": "body",
+                    "description": "Pet object that needs to be added to the store",
+                    "required": true,
+                    "schema": {
+                        "$ref": "#/definitions/Pet"
                     }
-                ],
+                }],
                 "responses": {
                     "400": {
                         "description": "Invalid ID supplied"
@@ -176,14 +146,12 @@
                         "description": "Validation exception"
                     }
                 },
-                "security": [
-                    {
-                        "petstore_auth": [
-                            "write:pets",
-                            "read:pets"
-                        ]
-                    }
-                ]
+                "security": [{
+                    "petstore_auth": [
+                        "write:pets",
+                        "read:pets"
+                    ]
+                }]
             }
         },
         "/pet/findByStatus": {
@@ -198,25 +166,23 @@
                     "application/json",
                     "application/xml"
                 ],
-                "parameters": [
-                    {
-                        "name": "status",
-                        "in": "query",
-                        "description": "Status values that need to be considered for filter",
-                        "required": true,
-                        "type": "array",
-                        "items": {
-                            "type": "string",
-                            "enum": [
-                                "available",
-                                "pending",
-                                "sold"
-                            ],
-                            "default": "available"
-                        },
-                        "collectionFormat": "multi"
-                    }
-                ],
+                "parameters": [{
+                    "name": "status",
+                    "in": "query",
+                    "description": "Status values that need to be considered for filter",
+                    "required": true,
+                    "type": "array",
+                    "items": {
+                        "type": "string",
+                        "enum": [
+                            "available",
+                            "pending",
+                            "sold"
+                        ],
+                        "default": "available"
+                    },
+                    "collectionFormat": "multi"
+                }],
                 "responses": {
                     "200": {
                         "description": "successful operation",
@@ -231,14 +197,12 @@
                         "description": "Invalid status value"
                     }
                 },
-                "security": [
-                    {
-                        "petstore_auth": [
-                            "write:pets",
-                            "read:pets"
-                        ]
-                    }
-                ]
+                "security": [{
+                    "petstore_auth": [
+                        "write:pets",
+                        "read:pets"
+                    ]
+                }]
             }
         },
         "/pet/findByTags": {
@@ -253,19 +217,17 @@
                     "application/json",
                     "application/xml"
                 ],
-                "parameters": [
-                    {
-                        "name": "tags",
-                        "in": "query",
-                        "description": "Tags to filter by",
-                        "required": true,
-                        "type": "array",
-                        "items": {
-                            "type": "string"
-                        },
-                        "collectionFormat": "multi"
-                    }
-                ],
+                "parameters": [{
+                    "name": "tags",
+                    "in": "query",
+                    "description": "Tags to filter by",
+                    "required": true,
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "collectionFormat": "multi"
+                }],
                 "responses": {
                     "200": {
                         "description": "successful operation",
@@ -280,14 +242,12 @@
                         "description": "Invalid tag value"
                     }
                 },
-                "security": [
-                    {
-                        "petstore_auth": [
-                            "write:pets",
-                            "read:pets"
-                        ]
-                    }
-                ],
+                "security": [{
+                    "petstore_auth": [
+                        "write:pets",
+                        "read:pets"
+                    ]
+                }],
                 "deprecated": true
             }
         },
@@ -303,16 +263,14 @@
                     "application/json",
                     "application/xml"
                 ],
-                "parameters": [
-                    {
-                        "name": "petId",
-                        "in": "path",
-                        "description": "ID of pet to return",
-                        "required": true,
-                        "type": "integer",
-                        "format": "int64"
-                    }
-                ],
+                "parameters": [{
+                    "name": "petId",
+                    "in": "path",
+                    "description": "ID of pet to return",
+                    "required": true,
+                    "type": "integer",
+                    "format": "int64"
+                }],
                 "responses": {
                     "200": {
                         "description": "successful operation",
@@ -327,11 +285,9 @@
                         "description": "Pet not found"
                     }
                 },
-                "security": [
-                    {
-                        "api_key": []
-                    }
-                ]
+                "security": [{
+                    "api_key": []
+                }]
             },
             "post": {
                 "tags": [
@@ -347,8 +303,7 @@
                     "application/json",
                     "application/xml"
                 ],
-                "parameters": [
-                    {
+                "parameters": [{
                         "name": "petId",
                         "in": "path",
                         "description": "ID of pet that needs to be updated",
@@ -376,14 +331,12 @@
                         "description": "Invalid input"
                     }
                 },
-                "security": [
-                    {
-                        "petstore_auth": [
-                            "write:pets",
-                            "read:pets"
-                        ]
-                    }
-                ]
+                "security": [{
+                    "petstore_auth": [
+                        "write:pets",
+                        "read:pets"
+                    ]
+                }]
             },
             "delete": {
                 "tags": [
@@ -396,8 +349,7 @@
                     "application/json",
                     "application/xml"
                 ],
-                "parameters": [
-                    {
+                "parameters": [{
                         "name": "api_key",
                         "in": "header",
                         "required": false,
@@ -420,14 +372,12 @@
                         "description": "Pet not found"
                     }
                 },
-                "security": [
-                    {
-                        "petstore_auth": [
-                            "write:pets",
-                            "read:pets"
-                        ]
-                    }
-                ]
+                "security": [{
+                    "petstore_auth": [
+                        "write:pets",
+                        "read:pets"
+                    ]
+                }]
             }
         },
         "/store/order": {
@@ -445,17 +395,15 @@
                     "application/json",
                     "application/xml"
                 ],
-                "parameters": [
-                    {
-                        "in": "body",
-                        "name": "body",
-                        "description": "order placed for purchasing the pet",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/Order"
-                        }
+                "parameters": [{
+                    "in": "body",
+                    "name": "body",
+                    "description": "order placed for purchasing the pet",
+                    "required": true,
+                    "schema": {
+                        "$ref": "#/definitions/Order"
                     }
-                ],
+                }],
                 "responses": {
                     "200": {
                         "description": "successful operation",
@@ -481,18 +429,16 @@
                     "application/json",
                     "application/xml"
                 ],
-                "parameters": [
-                    {
-                        "name": "orderId",
-                        "in": "path",
-                        "description": "ID of pet that needs to be fetched",
-                        "required": true,
-                        "type": "integer",
-                        "maximum": 10,
-                        "minimum": 1,
-                        "format": "int64"
-                    }
-                ],
+                "parameters": [{
+                    "name": "orderId",
+                    "in": "path",
+                    "description": "ID of pet that needs to be fetched",
+                    "required": true,
+                    "type": "integer",
+                    "maximum": 10,
+                    "minimum": 1,
+                    "format": "int64"
+                }],
                 "responses": {
                     "200": {
                         "description": "successful operation",
@@ -519,17 +465,15 @@
                     "application/json",
                     "application/xml"
                 ],
-                "parameters": [
-                    {
-                        "name": "orderId",
-                        "in": "path",
-                        "description": "ID of the order that needs to be deleted",
-                        "required": true,
-                        "type": "integer",
-                        "minimum": 1,
-                        "format": "int64"
-                    }
-                ],
+                "parameters": [{
+                    "name": "orderId",
+                    "in": "path",
+                    "description": "ID of the order that needs to be deleted",
+                    "required": true,
+                    "type": "integer",
+                    "minimum": 1,
+                    "format": "int64"
+                }],
                 "responses": {
                     "400": {
                         "description": "Invalid ID supplied"
@@ -564,11 +508,9 @@
                         }
                     }
                 },
-                "security": [
-                    {
-                        "api_key": []
-                    }
-                ]
+                "security": [{
+                    "api_key": []
+                }]
             }
         },
         "/user/createWithArray": {
@@ -586,20 +528,18 @@
                     "application/json",
                     "application/xml"
                 ],
-                "parameters": [
-                    {
-                        "in": "body",
-                        "name": "body",
-                        "description": "List of user object",
-                        "required": true,
-                        "schema": {
-                            "type": "array",
-                            "items": {
-                                "$ref": "#/definitions/User"
-                            }
+                "parameters": [{
+                    "in": "body",
+                    "name": "body",
+                    "description": "List of user object",
+                    "required": true,
+                    "schema": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/definitions/User"
                         }
                     }
-                ],
+                }],
                 "responses": {
                     "default": {
                         "description": "successful operation"
@@ -622,20 +562,18 @@
                     "application/json",
                     "application/xml"
                 ],
-                "parameters": [
-                    {
-                        "in": "body",
-                        "name": "body",
-                        "description": "List of user object",
-                        "required": true,
-                        "schema": {
-                            "type": "array",
-                            "items": {
-                                "$ref": "#/definitions/User"
-                            }
+                "parameters": [{
+                    "in": "body",
+                    "name": "body",
+                    "description": "List of user object",
+                    "required": true,
+                    "schema": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/definitions/User"
                         }
                     }
-                ],
+                }],
                 "responses": {
                     "default": {
                         "description": "successful operation"
@@ -655,15 +593,13 @@
                     "application/json",
                     "application/xml"
                 ],
-                "parameters": [
-                    {
-                        "name": "username",
-                        "in": "path",
-                        "description": "The name that needs to be fetched. Use user1 for testing. ",
-                        "required": true,
-                        "type": "string"
-                    }
-                ],
+                "parameters": [{
+                    "name": "username",
+                    "in": "path",
+                    "description": "The name that needs to be fetched. Use user1 for testing. ",
+                    "required": true,
+                    "type": "string"
+                }],
                 "responses": {
                     "200": {
                         "description": "successful operation",
@@ -693,8 +629,7 @@
                     "application/json",
                     "application/xml"
                 ],
-                "parameters": [
-                    {
+                "parameters": [{
                         "name": "username",
                         "in": "path",
                         "description": "name that need to be updated",
@@ -731,15 +666,13 @@
                     "application/json",
                     "application/xml"
                 ],
-                "parameters": [
-                    {
-                        "name": "username",
-                        "in": "path",
-                        "description": "The name that needs to be deleted",
-                        "required": true,
-                        "type": "string"
-                    }
-                ],
+                "parameters": [{
+                    "name": "username",
+                    "in": "path",
+                    "description": "The name that needs to be deleted",
+                    "required": true,
+                    "type": "string"
+                }],
                 "responses": {
                     "400": {
                         "description": "Invalid username supplied"
@@ -762,8 +695,7 @@
                     "application/json",
                     "application/xml"
                 ],
-                "parameters": [
-                    {
+                "parameters": [{
                         "name": "username",
                         "in": "query",
                         "description": "The user name for login",
@@ -838,17 +770,15 @@
                     "application/json",
                     "application/xml"
                 ],
-                "parameters": [
-                    {
-                        "in": "body",
-                        "name": "body",
-                        "description": "Created user object",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/User"
-                        }
+                "parameters": [{
+                    "in": "body",
+                    "name": "body",
+                    "description": "Created user object",
+                    "required": true,
+                    "schema": {
+                        "$ref": "#/definitions/User"
                     }
-                ],
+                }],
                 "responses": {
                     "default": {
                         "description": "successful operation"
